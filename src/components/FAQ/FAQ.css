@@ -1,0 +1,108 @@
+.faq-section {
+    padding: var(--spacing-5xl) 0;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+}
+
+.faq-header h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    margin-bottom: var(--spacing-md);
+}
+
+.faq-header p {
+    color: var(--text-tertiary);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.faq-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.faq-item:hover {
+    border-color: var(--glass-border-hover);
+}
+
+.faq-item.open {
+    border-color: var(--color-white);
+}
+
+.faq-question {
+    width: 100%;
+    padding: var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-lg);
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.faq-question:hover {
+    color: var(--color-white);
+}
+
+.faq-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer-content {
+    padding: 0 var(--spacing-xl) var(--spacing-xl);
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+    .faq-question {
+        padding: var(--spacing-lg);
+        font-size: 0.9375rem;
+    }
+
+    .faq-answer-content {
+        padding: 0 var(--spacing-lg) var(--spacing-lg);
+        font-size: 0.875rem;
+    }
+}

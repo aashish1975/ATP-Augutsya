@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import TeamSection from '../../components/TeamSection/TeamSection'
 import './About.css'
 
 const values = [
@@ -73,6 +74,9 @@ function About() {
                     </div>
                 </div>
             </section>
+
+            {/* Team Section */}
+            <TeamSection />
 
             {/* Values Section */}
             <section className="values-section">

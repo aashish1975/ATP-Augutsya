@@ -5,6 +5,8 @@ import AIChatWidget from './components/AIChatWidget/AIChatWidget'
 import CustomCursor from './components/CustomCursor/CustomCursor'
 import LoadingScreen from './components/LoadingScreen/LoadingScreen'
 import PageTransition from './components/PageTransition/PageTransition'
+import BackToTop from './components/BackToTop/BackToTop'
+import CookieBanner from './components/CookieBanner/CookieBanner'
 import Home from './pages/Home/Home'
 import Services from './pages/Services/Services'
 import Utilities from './pages/Utilities/Utilities'
@@ -13,6 +15,8 @@ import About from './pages/About/About'
 import Calculators from './pages/Calculators/Calculators'
 import Blog from './pages/Blog/Blog'
 import Portfolio from './pages/Portfolio/Portfolio'
+import Pricing from './pages/Pricing/Pricing'
+import NotFound from './pages/NotFound/NotFound'
 
 function App() {
   return (
@@ -31,11 +35,15 @@ function App() {
             <Route path="/calculators" element={<Calculators />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </PageTransition>
       </main>
       <Footer />
+      <BackToTop />
       <AIChatWidget />
+      <CookieBanner />
     </>
   )
 }

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import Hero from '../../components/Hero/Hero'
 import ServiceCard from '../../components/ServiceCard/ServiceCard'
+import ClientLogos from '../../components/ClientLogos/ClientLogos'
 import Testimonials from '../../components/Testimonials/Testimonials'
+import FAQ from '../../components/FAQ/FAQ'
 import './Home.css'
 
 const services = [
@@ -48,6 +50,9 @@ function Home() {
         <div className="home-page">
             <Hero />
 
+            {/* Client Logos */}
+            <ClientLogos />
+
             {/* Services Section */}
             <section className="home-services">
                 <div className="container">
@@ -86,6 +91,9 @@ function Home() {
             {/* Testimonials Section */}
             <Testimonials />
 
+            {/* FAQ Section */}
+            <FAQ />
+
             {/* CTA Section */}
             <section className="home-cta">
                 <div className="cta-container">
@@ -99,8 +107,8 @@ function Home() {
                             <Link to="/contact" className="btn btn-primary">
                                 Get Free Consultation
                             </Link>
-                            <Link to="/calculators" className="btn btn-secondary">
-                                Try Our AI Tools
+                            <Link to="/pricing" className="btn btn-secondary">
+                                View Pricing
                             </Link>
                         </div>
                     </div>

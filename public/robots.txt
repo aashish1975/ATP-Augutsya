@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://augutsya.com/sitemap.xml
+
+# Crawl delay for polite bots
+Crawl-delay: 1
+
+# Block specific bots if needed
+# User-agent: BadBot
+# Disallow: /
