@@ -1,0 +1,124 @@
+.home-page {
+    position: relative;
+}
+
+/* Services Section */
+.home-services {
+    padding: var(--spacing-5xl) 0;
+    position: relative;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+}
+
+.services-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--spacing-md);
+}
+
+.services-header p {
+    max-width: 480px;
+    margin: 0 auto;
+    color: var(--text-tertiary);
+    font-size: 1.0625rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.services-cta {
+    text-align: center;
+    margin-top: var(--spacing-3xl);
+}
+
+/* CTA Section */
+.home-cta {
+    padding: var(--spacing-5xl) 0;
+    position: relative;
+}
+
+.cta-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+}
+
+.cta-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-5xl);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-card::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 400px;
+    height: 400px;
+    background: var(--color-white);
+    filter: blur(200px);
+    opacity: 0.03;
+}
+
+.cta-card h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-card p {
+    max-width: 420px;
+    margin: 0 auto var(--spacing-xl);
+    color: var(--text-tertiary);
+    font-size: 1.0625rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+    .cta-card {
+        padding: var(--spacing-3xl) var(--spacing-xl);
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}

@@ -1,0 +1,135 @@
+.roi-calculator {
+    padding: var(--spacing-2xl);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-2xl);
+}
+
+.roi-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.roi-header h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.roi-header p {
+    color: var(--text-tertiary);
+    font-size: 0.9375rem;
+}
+
+.roi-form {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.roi-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.roi-form-group label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.roi-form-group input {
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.roi-form-group input:focus {
+    outline: none;
+    border-color: var(--color-white);
+}
+
+.roi-results {
+    padding: var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-xl);
+}
+
+.roi-main-result {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.roi-percentage {
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+}
+
+.roi-percentage.positive {
+    color: #6bcb77;
+}
+
+.roi-percentage.negative {
+    color: #ff6b6b;
+}
+
+.roi-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.roi-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 480px) {
+    .roi-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+.roi-detail-item {
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.roi-detail-value {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.roi-detail-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.roi-timeline {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--glass-border);
+    text-align: center;
+}
+
+.roi-timeline-value {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
