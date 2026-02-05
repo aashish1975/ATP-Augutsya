@@ -16,6 +16,8 @@ import Calculators from './pages/Calculators/Calculators'
 import Blog from './pages/Blog/Blog'
 import Portfolio from './pages/Portfolio/Portfolio'
 import Pricing from './pages/Pricing/Pricing'
+import Terms from './pages/Terms/Terms'
+import Privacy from './pages/Privacy/Privacy'
 import NotFound from './pages/NotFound/NotFound'
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </PageTransition>
