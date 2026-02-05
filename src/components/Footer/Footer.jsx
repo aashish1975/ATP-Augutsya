@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import './Footer.css'
+import Logo from '../../assets/images/logo.png'
 
 function Footer() {
     const currentYear = new Date().getFullYear()
@@ -11,8 +12,7 @@ function Footer() {
                     {/* Brand Column */}
                     <div className="footer-brand">
                         <div className="footer-logo">
-                            <span className="logo-icon">A</span>
-                            <span>AUGUTSYA</span>
+                            <img src={Logo} alt="AUGUTSYA" className="logo-img" />
                         </div>
                         <p className="footer-tagline">
                             Your search for a techno-commercial consultant ends here.

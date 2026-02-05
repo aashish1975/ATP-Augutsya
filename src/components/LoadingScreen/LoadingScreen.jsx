@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './LoadingScreen.css'
+import Logo from '../../assets/images/logo.png'
 
 function LoadingScreen() {
     const [isLoading, setIsLoading] = useState(true)
@@ -28,7 +29,7 @@ function LoadingScreen() {
 
     return (
         <div className={`loading-screen ${!isLoading ? 'hidden' : ''}`}>
-            <div className="loading-logo">A</div>
+            <img src={Logo} alt="Augutsya" className="loading-logo" />
             <div className="loading-text">Augutsya</div>
             <div className="loading-bar">
                 <div className="loading-bar-progress" />

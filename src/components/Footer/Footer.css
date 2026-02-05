@@ -34,17 +34,9 @@
     margin-bottom: var(--spacing-lg);
 }
 
-.footer-logo .logo-icon {
-    width: 32px;
-    height: 32px;
-    background: var(--color-white);
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.875rem;
-    color: var(--color-black);
+.footer-logo .logo-img {
+    height: 128px;
+    width: auto;
 }
 
 .footer-tagline {
