@@ -5,6 +5,8 @@
     position: relative;
     overflow: hidden;
     padding: var(--spacing-5xl) 0;
+    background: var(--bg-primary);
+    z-index: 10;
 }
 
 /* Background */

@@ -1,0 +1,75 @@
+.scroll-indicator {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.scroll-indicator-track {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.scroll-dot {
+    width: 10px;
+    height: 100%;
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.scroll-dot::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all var(--transition-base);
+}
+
+.scroll-dot:hover::after,
+.scroll-dot.active::after {
+    background: var(--color-white);
+    transform: scale(1.5);
+}
+
+.scroll-dot.active::after {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.dot-label {
+    position: absolute;
+    right: 24px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all var(--transition-base);
+    pointer-events: none;
+}
+
+.scroll-dot:hover .dot-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 1024px) {
+    .scroll-indicator {
+        display: none;
+    }
+}

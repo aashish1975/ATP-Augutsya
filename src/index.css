@@ -68,7 +68,8 @@
 
   /* Container */
   --container-max: 1200px;
-  --header-height: 200px;
+  --header-height: 100px;
+  --bg-gradient: radial-gradient(ellipse 100% 100% at bottom center, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
 }
 
 /* Reset & Base Styles */
@@ -96,6 +97,29 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   letter-spacing: -0.01em;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-top: var(--header-height);
+  background: var(--bg-primary);
+  background-attachment: fixed;
+  position: relative;
+}
+
+main::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--bg-gradient);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Typography */
@@ -180,6 +204,7 @@ ol {
 .section {
   padding: var(--spacing-5xl) 0;
   position: relative;
+  z-index: 1;
 }
 
 .section-title {

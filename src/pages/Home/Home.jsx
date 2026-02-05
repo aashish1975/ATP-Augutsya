@@ -4,6 +4,7 @@ import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import ClientLogos from '../../components/ClientLogos/ClientLogos'
 import Testimonials from '../../components/Testimonials/Testimonials'
 import FAQ from '../../components/FAQ/FAQ'
+import ScrollIndicator from '../../components/ScrollIndicator/ScrollIndicator'
 import './Home.css'
 
 const services = [
@@ -48,13 +49,19 @@ const services = [
 function Home() {
     return (
         <div className="home-page">
-            <Hero />
+            <ScrollIndicator />
+
+            <div id="hero">
+                <Hero />
+            </div>
 
             {/* Client Logos */}
-            <ClientLogos />
+            <section id="clients">
+                <ClientLogos />
+            </section>
 
             {/* Services Section */}
-            <section className="home-services">
+            <section id="services" className="home-services">
                 <div className="container">
                     <div className="services-header">
                         <h2>Our <span>Services</span></h2>
@@ -89,13 +96,17 @@ function Home() {
             </section>
 
             {/* Testimonials Section */}
-            <Testimonials />
+            <section id="testimonials">
+                <Testimonials />
+            </section>
 
             {/* FAQ Section */}
-            <FAQ />
+            <section id="faq">
+                <FAQ />
+            </section>
 
             {/* CTA Section */}
-            <section className="home-cta">
+            <section id="cta" className="home-cta">
                 <div className="cta-container">
                     <div className="cta-card">
                         <h2>Ready to Transform Your Business?</h2>
