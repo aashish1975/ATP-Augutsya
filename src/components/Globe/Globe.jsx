@@ -13,17 +13,12 @@ const GLOBE_CONFIG = {
     dark: 1,
     diffuse: 0.4,
     mapSamples: 16000,
-    mapBrightness: 1.2,
-    baseColor: [0.3, 0.3, 0.3],
-    markerColor: [1, 1, 1],
-    glowColor: [0.4, 0.4, 0.4],
+    mapBrightness: 2.0, // Increased for fluorescent effect
+    baseColor: [1, 1, 1], // Fluorescent white
+    markerColor: [0, 1, 0], // Fluorescent green markers
+    glowColor: [0.5, 0.5, 0.5], // Brighter glow
     markers: [
-        // India - Main focus
-        { location: [28.6139, 77.2090], size: 0.15 }, // Delhi (HQ)
-        { location: [19.076, 72.8777], size: 0.1 }, // Mumbai
-        { location: [12.9716, 77.5946], size: 0.08 }, // Bangalore
-        { location: [13.0827, 80.2707], size: 0.06 }, // Chennai
-        { location: [22.5726, 88.3639], size: 0.06 }, // Kolkata
+        { location: [28.6139, 77.2090], size: 0.2 }, // Delhi
 
         // Global presence
         { location: [40.7128, -74.006], size: 0.08 }, // New York
@@ -32,20 +27,17 @@ const GLOBE_CONFIG = {
         { location: [25.2048, 55.2708], size: 0.06 }, // Dubai
         { location: [-33.8688, 151.2093], size: 0.05 }, // Sydney
         { location: [35.6762, 139.6503], size: 0.06 }, // Tokyo
-        { location: [37.7749, -122.4194], size: 0.06 }, // San Francisco
-        { location: [52.52, 13.405], size: 0.05 }, // Berlin
-        { location: [48.8566, 2.3522], size: 0.05 }, // Paris
-        { location: [-23.5505, -46.6333], size: 0.05 }, // São Paulo
     ],
 }
 
 export default function Globe({ className, config = GLOBE_CONFIG }) {
-    let phi = 0
-    let width = 0
+    const phiRef = useRef(3.03) // Start from India
+    const [width, setWidth] = useState(0)
     const canvasRef = useRef(null)
     const pointerInteracting = useRef(null)
     const pointerInteractionMovement = useRef(0)
     const [r, setR] = useState(0)
+    const [zoomScale, setZoomScale] = useState(1)
 
     const updatePointerInteraction = (value) => {
         pointerInteracting.current = value
@@ -64,19 +56,38 @@ export default function Globe({ className, config = GLOBE_CONFIG }) {
 
     const onRender = useCallback(
         (state) => {
-            if (!pointerInteracting.current) phi += 0.005
-            state.phi = phi + r
+            if (!pointerInteracting.current) {
+                const currentPhi = (phiRef.current + r) % (Math.PI * 2)
+                const targetPhi = 3.03
+                const diff = Math.min(
+                    Math.abs(currentPhi - targetPhi),
+                    Math.abs(currentPhi - (targetPhi + Math.PI * 2)),
+                    Math.abs(currentPhi - (targetPhi - Math.PI * 2))
+                )
+
+                // Rotation Speed
+                const speed = diff < 0.6 ? 0.002 : 0.005
+                phiRef.current += speed
+
+                // Dynamic Zoom
+                const zoom = diff < 0.8 ? 1 + (0.3 * (1 - diff / 0.8)) : 1
+                setZoomScale(zoom)
+            } else {
+                setZoomScale(1)
+            }
+
+            state.phi = phiRef.current + r
             state.width = width * 2
             state.height = width * 2
         },
-        [r],
+        [r, width],
     )
 
-    const onResize = () => {
+    const onResize = useCallback(() => {
         if (canvasRef.current) {
-            width = canvasRef.current.offsetWidth
+            setWidth(canvasRef.current.offsetWidth)
         }
-    }
+    }, [])
 
     useEffect(() => {
         window.addEventListener('resize', onResize)
@@ -99,13 +110,23 @@ export default function Globe({ className, config = GLOBE_CONFIG }) {
             globe.destroy()
             window.removeEventListener('resize', onResize)
         }
-    }, [config, onRender])
+    }, [config, onRender, onResize])
 
     return (
-        <div className={cn('globe-container', className)}>
+        <div
+            className={cn('globe-container', className)}
+            style={{
+                position: 'relative',
+                transition: 'transform 0.5s ease-out',
+                transform: `scale(${zoomScale})`
+            }}
+        >
             <canvas
                 className="globe-canvas"
                 ref={canvasRef}
+                style={{
+                    filter: zoomScale > 1.1 ? 'drop-shadow(0 0 20px rgba(0,255,0,0.3))' : 'none'
+                }}
                 onPointerDown={(e) => updatePointerInteraction(e.clientX - pointerInteractionMovement.current)}
                 onPointerUp={() => updatePointerInteraction(null)}
                 onPointerOut={() => updatePointerInteraction(null)}
