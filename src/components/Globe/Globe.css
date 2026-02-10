@@ -1,9 +1,11 @@
 .globe-container {
     position: relative;
-    aspect-ratio: 1 / 1;
+    /* aspect-ratio: 1 / 1; Removed to prevent boxiness */
     width: 100%;
-    max-width: 1000px;
-    min-width: 550px;
+    background: transparent !important;
+    /* Force transparent background */
+    /* max-width: 1000px; Removed for better alignment */
+    /* min-width: 550px; Removed for better alignment */
 }
 
 .globe-canvas {
@@ -20,18 +22,8 @@
 }
 
 /* Globe glow effect */
-.globe-container::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: -1;
-}
+/* Globe glow effect removed as per user request */
+/* .globe-container::after { ... } */
 
 @media (max-width: 1024px) {
     .globe-container {

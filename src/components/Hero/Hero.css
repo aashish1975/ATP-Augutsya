@@ -4,7 +4,7 @@
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: var(--spacing-5xl) 0;
+    padding: 0 0 var(--spacing-5xl) 0;
     background: var(--bg-primary);
     z-index: 10;
 }
@@ -151,7 +151,11 @@
     opacity: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    height: 800px;
+    /* Matched to design */
+    margin-right: -100px;
+    /* Pull globe slightly to the right */
 }
 
 /* Responsive */

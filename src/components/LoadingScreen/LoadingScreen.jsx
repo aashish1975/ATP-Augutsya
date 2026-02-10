@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './LoadingScreen.css'
-import Logo from '../../assets/images/logo.png'
+import Logo from '../../assets/images/atpwhite.png'
 
 function LoadingScreen() {
     const [isLoading, setIsLoading] = useState(true)
@@ -36,6 +36,8 @@ function LoadingScreen() {
             </div>
         </div>
     )
+
+
 }
 
 export default LoadingScreen
