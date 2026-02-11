@@ -40,9 +40,17 @@
 .logo-img {
     height: 35px;
     width: auto;
+    object-fit: contain;
+    vertical-align: middle;
 }
 
 /* Navigation */
+.nav-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
 .nav {
     display: flex;
     align-items: center;
@@ -52,96 +60,56 @@
 .nav-list {
     display: flex;
     align-items: center;
-    gap: var(--spacing-lg);
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 4px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--glass-border);
 }
 
 .nav-link {
     font-size: 0.875rem;
     font-weight: 450;
     color: var(--text-tertiary);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    padding: 8px 16px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    padding: 8px 20px;
     position: relative;
     text-decoration: none;
-    overflow: hidden;
-    z-index: 1;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-full);
     display: flex;
     align-items: center;
-    transform: translateY(0) scale(1);
-}
-
-.nav-link::before,
-.nav-link::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 75%);
-    z-index: -1;
-    opacity: 0;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    filter: blur(5px);
-}
-
-.nav-link::before {
-    top: 10%;
-    left: 10%;
-}
-
-.nav-link::after {
-    bottom: 10%;
-    right: 10%;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--text-primary);
-    transform: translateY(-2px) scale(1.05);
-}
-
-.nav-link:hover::before,
-.nav-link:hover::after,
-.nav-link.active::before,
-.nav-link.active::after {
-    width: 250%;
-    height: 250%;
-    opacity: 1;
-}
-
-.nav-link:hover::before,
-.nav-link.active::before {
-    top: -75%;
-    left: -75%;
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    bottom: -75%;
-    right: -75%;
 }
 
 .nav-link:hover {
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .nav-link.active {
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 500;
 }
 
-.nav .btn {
-    padding: 10px 20px;
-    font-size: 0.875rem;
-}
-
-.nav-actions {
+/* Header Actions */
+.header-actions {
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
+}
+
+.header-actions .btn-primary {
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 10px 24px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+}
+
+.header-actions .btn-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Mobile Menu Button */
@@ -151,6 +119,7 @@
     gap: 5px;
     padding: var(--spacing-sm);
     cursor: pointer;
+    z-index: 1001;
 }
 
 .menu-btn span {
@@ -174,44 +143,68 @@
 }
 
 /* Mobile Navigation */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .menu-btn {
         display: flex;
     }
 
-    .nav {
+    .nav-wrapper {
         position: fixed;
-        top: var(--header-height);
+        top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         background: var(--bg-primary);
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: var(--spacing-3xl) var(--spacing-xl);
+        z-index: 1000;
         transform: translateX(100%);
         transition: transform var(--transition-base);
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--spacing-xl);
     }
 
-    .nav.open {
+    .nav-wrapper.open {
         transform: translateX(0);
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+        width: 100%;
     }
 
     .nav-list {
         flex-direction: column;
-        align-items: flex-start;
+        background: transparent;
+        border: none;
+        padding: 0;
         gap: var(--spacing-md);
         width: 100%;
     }
 
     .nav-link {
-        font-size: 2rem;
-        font-weight: 500;
-        letter-spacing: -0.02em;
+        font-size: 1.5rem;
+        padding: 12px;
+        width: 100%;
+        justify-content: center;
     }
 
-    .nav .btn {
-        width: 100%;
-        margin-top: var(--spacing-xl);
+    .header-actions .btn-primary {
+        display: none; /* Hide 'Get Started' on mobile if redundant or maintain if desired, but often redundant with menu actions */
+    }
+
+    /* Show Get Started in Mobile Menu if needed, or keeping it strictly in header-actions means it's visible on header bar. 
+       Let's keep it visible in header bar for mobile (except checking space). 
+       Actually, usually it's hidden or moved into the menu. 
+       The current structure separates nav-wrapper from header-actions. 
+       Let's keep header-actions visible on mobile to allow 'Get Started' or just Hamburger. 
+       */
+    
+    .header-actions {
+        z-index: 1002; /* Above mobile menu */
+    }
+    
+    .header-actions .btn-primary {
+        display: none; /* Hide 'Get Started' button on mobile to save space for logo and hamburger */
     }
 }

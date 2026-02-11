@@ -4,7 +4,7 @@
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 0 0 var(--spacing-5xl) 0;
+    padding: 5px 0 var(--spacing-2xl) 0;
     background: var(--bg-primary);
     z-index: 10;
 }
@@ -45,16 +45,16 @@
 .hero-container {
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 var(--spacing-xl);
+    padding: 0 var(--spacing-md);
     position: relative;
     z-index: 1;
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     align-items: center;
-    gap: var(--spacing-4xl);
+    gap: var(--spacing-5xl);
 }
 
 /* Left Side - Text */
@@ -73,7 +73,7 @@
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--text-tertiary);
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-lg);
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
@@ -91,7 +91,7 @@
     font-weight: 500;
     line-height: 1.05;
     letter-spacing: -0.04em;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 .hero-title span {
@@ -152,10 +152,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    height: 800px;
-    /* Matched to design */
-    margin-right: -100px;
-    /* Pull globe slightly to the right */
+    height: 400px;
+    /* Larger size to match image */
+    margin-right: 0;
+    /* Remove negative margin to prevent overlap */
 }
 
 /* Responsive */

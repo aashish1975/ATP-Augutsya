@@ -30,7 +30,7 @@ function LoadingScreen() {
     return (
         <div className={`loading-screen ${!isLoading ? 'hidden' : ''}`}>
             <img src={Logo} alt="Augutsya" className="loading-logo" />
-            <div className="loading-text">Augutsya</div>
+            <div className="loading-text">Augutsya Techno Projects</div>
             <div className="loading-bar">
                 <div className="loading-bar-progress" />
             </div>
