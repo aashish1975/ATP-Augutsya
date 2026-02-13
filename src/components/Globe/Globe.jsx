@@ -28,6 +28,7 @@ export default function GlobeComponent({ className }) {
         }
     ], [])
 
+    
     useEffect(() => {
         if (containerRef.current) {
             setWidth(containerRef.current.offsetWidth)
