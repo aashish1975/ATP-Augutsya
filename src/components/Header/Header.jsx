@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './Header.css'
 import Logo from '../../assets/images/atpwhite.png'
+import ThemeToggle from '../ThemeToggle/ThemeToggle'
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -101,6 +102,7 @@ function Header() {
                 </div>
 
                 <div className="header-actions">
+                    <ThemeToggle />
                     <Link to="/contact" className="btn btn-primary" onClick={closeMenu}>
                         Get Started
                     </Link>

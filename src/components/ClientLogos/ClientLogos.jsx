@@ -17,7 +17,12 @@ function ClientLogos() {
     return (
         <section className="client-logos">
             <div className="client-logos-header">
-                <p>Trusted by leading businesses across India</p>
+                <div className="header-badge">
+                    <span className="badge-icon">⭐</span>
+                    <span className="badge-text">Trusted</span>
+                </div>
+                <h2 className="header-title">Leading Businesses Across India</h2>
+                <p className="header-subtitle">Join thousands of companies that trust our services</p>
             </div>
 
             <div className="logos-track">

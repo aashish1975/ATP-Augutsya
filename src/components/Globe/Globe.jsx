@@ -16,7 +16,7 @@ export default function GlobeComponent({ className }) {
     const INITIAL_POV = {
         lat: 20,
         lng: 77,
-        altitude: 1.6
+        altitude: 2.5
     }
 
     const htmlData = useMemo(() => [
@@ -28,11 +28,13 @@ export default function GlobeComponent({ className }) {
         }
     ], [])
 
-    // Responsive globe size (larger)
+    // Responsive globe size (adjusted for better visual balance)
     useEffect(() => {
         const updateSize = () => {
             const base = window.innerWidth
-            setSize(base * 0.4) // Larger size to match image
+            // Even larger size for maximum visual impact
+            const size = base < 768 ? base * 0.9 : Math.min(base * 0.6, 650)
+            setSize(size)
         }
 
         updateSize()
@@ -45,8 +47,25 @@ export default function GlobeComponent({ className }) {
         if (!globeRef.current) return
 
         globeRef.current.pointOfView(INITIAL_POV, 0)
-        globeRef.current.controls().autoRotate = true
-        globeRef.current.controls().autoRotateSpeed = 0.5
+        
+        // Disable mouse interactions but keep rotation
+        globeRef.current.controls().enableZoom = false
+        globeRef.current.controls().enablePan = false
+        globeRef.current.controls().enableRotate = false
+    }, [])
+
+    // Separate effect for rotation
+    useEffect(() => {
+        if (!globeRef.current) return
+        
+        const timer = setTimeout(() => {
+            if (globeRef.current) {
+                globeRef.current.controls().autoRotate = true
+                globeRef.current.controls().autoRotateSpeed = 0.5
+            }
+        }, 500)
+        
+        return () => clearTimeout(timer)
     }, [])
 
     return (

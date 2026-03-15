@@ -98,6 +98,10 @@
     gap: var(--spacing-md);
 }
 
+.header-actions .theme-toggle {
+    margin-right: var(--spacing-sm);
+}
+
 .header-actions .btn-primary {
     background: var(--color-white);
     color: var(--color-black);

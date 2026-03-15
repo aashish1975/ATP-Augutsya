@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
-import Hero from '../../components/Hero/Hero'
+import HeroNew from '../../components/Hero/HeroNew'
 import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import ClientLogos from '../../components/ClientLogos/ClientLogos'
 import Testimonials from '../../components/Testimonials/Testimonials'
 import FAQ from '../../components/FAQ/FAQ'
 import ScrollIndicator from '../../components/ScrollIndicator/ScrollIndicator'
+import TrustBadges from '../../components/TrustBadges/TrustBadges'
 import './Home.css'
 
 const services = [
@@ -52,12 +53,17 @@ function Home() {
             <ScrollIndicator />
 
             <div id="hero">
-                <Hero />
+                <HeroNew />
             </div>
 
             {/* Client Logos */}
             <section id="clients">
                 <ClientLogos />
+            </section>
+
+            {/* Trust Badges */}
+            <section id="trust">
+                <TrustBadges />
             </section>
 
             {/* Services Section */}

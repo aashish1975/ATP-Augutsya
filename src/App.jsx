@@ -4,7 +4,6 @@ import Footer from './components/Footer/Footer'
 import AIChatWidget from './components/AIChatWidget/AIChatWidget'
 import CustomCursor from './components/CustomCursor/CustomCursor'
 import LoadingScreen from './components/LoadingScreen/LoadingScreen'
-import PageTransition from './components/PageTransition/PageTransition'
 import BackToTop from './components/BackToTop/BackToTop'
 import CookieBanner from './components/CookieBanner/CookieBanner'
 import Home from './pages/Home/Home'
@@ -27,22 +26,20 @@ function App() {
       <CustomCursor />
       <Header />
       <main>
-        <PageTransition>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/utilities" element={<Utilities />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/calculators" element={<Calculators />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </PageTransition>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/utilities" element={<Utilities />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/calculators" element={<Calculators />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
       <Footer />
       <BackToTop />

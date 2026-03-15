@@ -1,13 +1,17 @@
 /* Free-floating globe container */
 .globe-wrapper {
-    position: absolute;
-    right: -50%;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
     background: transparent;
     overflow: visible;
-    pointer-events: none;
-    /* remove if you want interaction */
+    pointer-events: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1;
 }
 
@@ -20,7 +24,15 @@
 /* Tablet */
 @media (max-width: 1024px) {
     .globe-wrapper {
-        right: -60%;
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -28,10 +40,15 @@
 @media (max-width: 640px) {
     .globe-wrapper {
         position: relative;
-        right: 0;
+        right: auto;
         top: auto;
         transform: none;
         margin: 0 auto;
         pointer-events: auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

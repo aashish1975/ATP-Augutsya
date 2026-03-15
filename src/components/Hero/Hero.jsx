@@ -17,50 +17,54 @@ function Hero() {
             <div className="hero-container">
                 <div className="hero-content">
                     {/* Left Side - Text Content */}
-                    <div className="hero-text">
-                        <div className="hero-badge">
-                            <span className="hero-badge-dot"></span>
-                            <span>Techno-Commercial Consulting</span>
-                        </div>
-
-                        <h1 className="hero-title">
-                            <span>We Build</span>
-                            <span>Ship & <span className="highlight">Scale</span></span>
-                        </h1>
-
-                        <p className="hero-description">
-                            Your search for a techno-commercial consultant ends here.
-                            We build useful tech that feels effortless.
-                        </p>
-
-                        <div className="hero-buttons">
-                            <Link to="/contact" className="btn btn-primary">
-                                Get Consultation
-                            </Link>
-                            <Link to="/services" className="btn btn-secondary">
-                                Explore Services
-                            </Link>
-                        </div>
-
-                        <div className="hero-stats">
-                            <div className="stat-item">
-                                <div className="stat-value">50+</div>
-                                <div className="stat-label">Projects</div>
+                    <div className="hero-text-section">
+                        <div className="hero-text">
+                            <div className="hero-badge">
+                                <span className="hero-badge-dot"></span>
+                                <span>Techno-Commercial Consulting</span>
                             </div>
-                            <div className="stat-item">
-                                <div className="stat-value">98%</div>
-                                <div className="stat-label">On-time</div>
+
+                            <h1 className="hero-title">
+                                <span>We Build</span>
+                                <span>Ship & <span className="highlight">Scale</span></span>
+                            </h1>
+
+                            <p className="hero-description">
+                                Your search for a techno-commercial consultant ends here.
+                                We build useful tech that feels effortless.
+                            </p>
+
+                            <div className="hero-buttons">
+                                <Link to="/contact" className="btn btn-primary">
+                                    Get Consultation
+                                </Link>
+                                <Link to="/services" className="btn btn-secondary">
+                                    Explore Services
+                                </Link>
                             </div>
-                            <div className="stat-item">
-                                <div className="stat-value">24/7</div>
-                                <div className="stat-label">Support</div>
+
+                            <div className="hero-stats">
+                                <div className="stat-item">
+                                    <div className="stat-value">50+</div>
+                                    <div className="stat-label">Projects</div>
+                                </div>
+                                <div className="stat-item">
+                                    <div className="stat-value">98%</div>
+                                    <div className="stat-label">On-time</div>
+                                </div>
+                                <div className="stat-item">
+                                    <div className="stat-value">24/7</div>
+                                    <div className="stat-label">Support</div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Right Side - Interactive Globe */}
-                    <div className="hero-globe">
-                        <Globe />
+                    <div className="hero-globe-section">
+                        <div className="hero-globe">
+                            <Globe />
+                        </div>
                     </div>
                 </div>
             </div>
