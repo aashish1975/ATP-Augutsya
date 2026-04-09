@@ -1,6 +1,6 @@
 .scroll-indicator {
     position: fixed;
-    right: 40px;
+    left: 32px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 100;
@@ -9,13 +9,11 @@
 .scroll-indicator-track {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: flex-end;
+    gap: 14px;
+    align-items: flex-start;
 }
 
 .scroll-dot {
-    width: 10px;
-    height: 100%;
     position: relative;
     padding: 0;
     cursor: pointer;
@@ -23,49 +21,74 @@
     border: none;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    gap: 10px;
 }
 
-.scroll-dot::after {
+/* The dash line */
+.scroll-dot::before {
     content: '';
-    width: 8px;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transition: all var(--transition-base);
+    display: block;
+    height: 2px;
+    width: 20px;
+    background: rgba(255, 255, 255, 0.25);
+    transition: width 0.3s ease, background 0.3s ease;
+    flex-shrink: 0;
 }
 
-.scroll-dot:hover::after,
-.scroll-dot.active::after {
-    background: var(--color-white);
-    transform: scale(1.5);
+.scroll-dot:hover::before {
+    width: 32px;
+    background: rgba(255, 255, 255, 0.6);
 }
 
-.scroll-dot.active::after {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+.scroll-dot.active::before {
+    width: 40px;
+    background: #fff;
 }
 
+/* Label appears to the right of the dash */
 .dot-label {
-    position: absolute;
-    right: 24px;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    padding: 4px 12px;
-    border-radius: var(--radius-sm);
-    color: var(--text-primary);
-    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.7rem;
     font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     white-space: nowrap;
     opacity: 0;
-    transform: translateX(10px);
-    transition: all var(--transition-base);
+    transform: translateX(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
     pointer-events: none;
 }
 
-.scroll-dot:hover .dot-label {
+.scroll-dot:hover .dot-label,
+.scroll-dot.active .dot-label {
     opacity: 1;
     transform: translateX(0);
+}
+
+.scroll-dot.active .dot-label {
+    color: #fff;
+}
+
+/* Light mode overrides */
+:root.light-mode .scroll-dot::before {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+:root.light-mode .scroll-dot:hover::before {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+:root.light-mode .scroll-dot.active::before {
+    background: #111;
+}
+
+:root.light-mode .dot-label {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+:root.light-mode .scroll-dot:hover .dot-label,
+:root.light-mode .scroll-dot.active .dot-label {
+    color: #111;
 }
 
 @media (max-width: 1024px) {

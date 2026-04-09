@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import './Header.css'
-import Logo from '../../assets/images/atpwhite.png'
+import LogoDark from '../../assets/images/atpwhite.png'
+import LogoLight from '../../assets/images/atpblue.png'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
+import { useTheme } from '../../contexts/ThemeContext'
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { isDarkMode } = useTheme()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -28,7 +31,7 @@ function Header() {
         <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
             <div className="header-container">
                 <Link to="/" className="logo" onClick={closeMenu}>
-                    <img src={Logo} alt="AUGUTSYA" className="logo-img" />
+                    <img src={isDarkMode ? LogoDark : LogoLight} alt="AUGUTSYA" className="logo-img" />
                 </Link>
 
                 <div className={`nav-wrapper ${isMenuOpen ? 'open' : ''}`}>
